@@ -52,6 +52,13 @@ describe('Draft scraping', function(){
     });
   });
 
+  it('should be able to load nfl leagues without draftboards', function(done) {
+    draft.get('http://www.fleaflicker.com/nfl/leagues/140986/drafts?season=2016', function(err, draft) {
+      expect(draft.league.name).to.equal('NarFFL Minors - Emmitt Smith West');
+      done();
+    });
+  });
+
   // it('should correctly pick up all draft picks', function(done){
   //   draft.get('mlb', 15313, 2014, function(err, draft){
   //     expect(draft.picks.length).to.equal(336);
